@@ -1,0 +1,9 @@
+<% if @result == "tied" %>
+  You tied with the computer!!
+  <p>You chose <%= @player_throws %> and he did the same!!</p>
+<% elsif @result == "won" %>
+  <p>You won!! <%= @player_throws %> beats <%= @computer_throws %></p>
+<% else %>
+  <p>You lose.. <%= @computer_throws %> beats <%= @player_throws %></p>
+<% end %>
+<a href="/admin">Test again</a>

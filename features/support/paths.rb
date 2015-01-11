@@ -22,6 +22,12 @@ module NavigationHelpers
     when /result/
       '/result'
 
+    when /admin/
+      '/admin'
+
+    when /admin_result/
+      '/admin_result'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

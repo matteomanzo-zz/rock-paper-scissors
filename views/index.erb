@@ -1,6 +1,7 @@
 <% unless @player == "" || @player == nil %>
   <p>Welcome <%= @player %>! Ready to play?</p>
   <a href="/newgame">Play!</a>
+  <a href="/admin">admin_test</a>
 <% else %>
   <p>You must enter your name, don't be shy!</p>
   <form action='/' method='post'>
