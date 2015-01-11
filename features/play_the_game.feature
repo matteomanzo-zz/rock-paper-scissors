@@ -77,3 +77,19 @@ Feature: Play the game
     Then I should see "And the winner is.." within "admin_result"
     And I should see "You tied with the computer!!" within "admin_result"
     And I should see "You chose paper and he did the same!!" within "admin_result"
+
+  Scenario: Invalid option
+    Given I am on admin
+    When I fill in "game" with "rew"
+    When I fill in "game2" with "eecdw"
+    And I press "play" within "submit"
+    Then I should see "And the winner is.." within "admin_result"
+    And I should see "You entered an invalid option!" within "admin_result"
+
+  Scenario: Empty field
+    Given I am on admin
+    When I fill in "game" with ""
+    When I fill in "game2" with ""
+    And I press "play" within "submit"
+    Then I should see "And the winner is.." within "admin_result"
+    And I should see "You entered an invalid option!" within "admin_result"
