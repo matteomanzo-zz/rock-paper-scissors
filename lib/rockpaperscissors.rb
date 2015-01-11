@@ -55,14 +55,16 @@ class RPS < Sinatra::Base
     @title = "And the winner is.."
     @player_throws = params[:game].to_sym
     @computer_throws = params[:game2].to_sym
-    if @player_throws == @computer_throws
+    if !throws.include?(@player_throws) || @player_throws == "" || @computer_throws == "" || !throws.include?(@computer_throws)
+      @result = "error"
+    elsif @player_throws == @computer_throws
       @result = "tied"
     elsif @player_throws == options[@computer_throws]
       @result = "lose"
-    else
+    elsif @computer_throws == options[@player_throws]
       @result = "won"
     end
-    erb :result
+    erb :admin_result
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
