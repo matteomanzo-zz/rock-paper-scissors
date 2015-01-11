@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @title || "Rock, Paper, Scissors!" %></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+	<header>
+		<h1><%= @title || "Rock, Paper, Scissors!" %></h1>
+		<section>
+		<%= yield %>
+		</section>
+		<nav>
+			<ul>
+				<li><a href="/howtoplay">How To Play</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>

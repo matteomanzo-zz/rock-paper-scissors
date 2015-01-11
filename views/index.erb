@@ -1,0 +1,9 @@
+<% unless @player == "" || @player == nil %>
+  <p>Welcome <%= @player %>! Ready to play?</p>
+<% else %>
+  <p>You must write your name, don't be shy!</p>
+  <form action='/' method='post'>
+    Your name: <input type= 'text' name= 'name'>
+    <input type= 'submit' name= 'Submit' value= 'GO!'>
+  </form>
+<% end %>
