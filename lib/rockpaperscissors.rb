@@ -10,8 +10,8 @@ class RPS < Sinatra::Base
   end
 
   post '/' do
-    session[:player] = params[:name]
     @player = params[:name]
+    session[:player] = @player
     erb :index
   end
  
