@@ -1,14 +1,19 @@
 class Game
 
-  attr_reader :options, :throws, :computer_choice
+  attr_reader :options, :throws
+  attr_accessor :computer_choice
 
   def initialize
     @options = { rock: :scissors, paper: :rock, scissors: :paper }
     @throws = options.keys
   end
 
-  def result(player_choice)
+  def random_choice
     @computer_choice = throws.sample
+  end
+
+  def result(player_choice)
+    random_choice
     if player_choice == computer_choice
       value = "tied"
     elsif player_choice == options[computer_choice]
