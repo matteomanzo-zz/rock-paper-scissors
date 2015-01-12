@@ -1,9 +1,11 @@
-<% unless @player == "" || @player == nil %>
-  <p>Welcome <%= @player %>! Ready to play?</p>
+<% if @player == "admin" %>
+    <a href="/admin">admin_test</a>
+<% end %>
+<% unless @player == "" || @player == nil || @player == "admin" %>
+  <p>Welcome <%= @player %>! Are you ready to play?</p>
   <a href="/newgame">Play!</a>
-  <a href="/admin">admin_test</a>
 <% else %>
-  <p>You must enter your name, don't be shy!</p>
+  <p>Enter your name, please..</p>
   <form action='/' method='post'>
     Your name: <input type= 'text' name= 'name'>
     <input type= 'submit' name= 'Submit' value= 'GO!'>

@@ -3,6 +3,7 @@ require 'sinatra/base'
 class RPS < Sinatra::Base
 
   set :views, Proc.new { File.join(root, "../views") }
+  set :public_folder, Proc.new { File.join(root, "../public") }
 
 
   options = { rock: :scissors, paper: :rock, scissors: :paper }
@@ -55,7 +56,7 @@ class RPS < Sinatra::Base
     @title = "And the winner is.."
     @player_throws = params[:game].to_sym
     @computer_throws = params[:game2].to_sym
-    if !throws.include?(@player_throws) || @player_throws == "" || @computer_throws == "" || !throws.include?(@computer_throws)
+    if !throws.include?(@player_throws) || @player_throws == "" || @computer_throws == ""
       @result = "error"
     elsif @player_throws == @computer_throws
       @result = "tied"

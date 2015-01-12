@@ -1,5 +1,5 @@
 <% if @result == "tied" %>
-  You tied with the computer!!
+  <p>You tied with the computer!!</p>
   <p>You chose <%= @player_throws %> and he did the same!!</p>
 <% elsif @result == "won" %>
   <p>You won!! <%= @player_throws %> beats <%= @computer_throws %></p>

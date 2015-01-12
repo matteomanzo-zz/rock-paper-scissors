@@ -1,0 +1,53 @@
+body {
+	max-width: 1500px;
+	background: green;
+}
+
+h1 {
+	font-style: italic;
+	color: #903;
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+form {
+	text-align: center;
+}
+
+nav {
+	text-align: center;
+	list-style: square;
+	margin: 45px;
+	padding: 5px;
+	background: grey;
+	overflow: hidden;
+	font-weight: bold;
+	display: inline-block;
+	margin-left: 44%;
+}
+
+nav a {
+	display: inline;
+}
+
+li {
+    float: center;
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+a {
+	display: block;
+    width: 60px;
+    background-color: #dddddd;
+    margin: 0 auto;
+}
