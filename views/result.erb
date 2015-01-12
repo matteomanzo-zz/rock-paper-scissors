@@ -3,7 +3,7 @@
   <p>You tied with the computer!!</p>
   <p>You chose <%= @player_choice.capitalize %> and the computer did the same!!</p>
 <% elsif @end_match == "won" %>
-  <p>You won!! <%= @player_choice.capitalize %> beats <%= @computer.capitalize %></p>
+  <p>You won <%= @player_name %>!! <%= @player_choice.capitalize %> beats <%= @computer.capitalize %></p>
 <% elsif @end_match == "lose" %>
   <p>You lose.. <%= @computer.capitalize %> beats <%= @player_choice.capitalize %></p>
 <% end %>

@@ -1,8 +1,6 @@
 class Player
 
-  def initialize(name)
-    @name = name
-  end
+  attr_accessor :name
 
   def pick(option)
     option.to_sym

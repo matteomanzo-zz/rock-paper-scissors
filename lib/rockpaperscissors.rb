@@ -4,19 +4,21 @@ require_relative 'player.rb'
 
 class RPS < Sinatra::Base
 
+  enable :sessions
   set :views, Proc.new { File.join(root, "../views") }
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   game = Game.new
-  player = Player.new("Matte")
 
   get '/' do
     erb :index
   end
 
   post '/' do
-    @player = params[:name]
-    session[:player] = @player
+    player = Player.new
+    player.name = params[:name]
+    @player_name = player.name
+    session[:player] = player
     erb :index
   end
  
@@ -39,7 +41,9 @@ class RPS < Sinatra::Base
   end
 
   post '/result' do
-    @title = "And the winner is.."  
+    @title = "And the winner is.."
+    player = session[:player]
+    @player_name = player.name
     @player_choice = player.pick(params[:game])
     @end_match = game.result(@player_choice)
     @computer = game.computer_choice

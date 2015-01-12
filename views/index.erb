@@ -1,8 +1,8 @@
-<% if @player == "admin" %>
+<% if @player_name == "admin" %>
     <a href="/admin">admin_test</a>
 <% end %>
-<% unless @player == "" || @player == nil || @player == "admin" %>
-  <p>Welcome <%= @player %>! Are you ready to play?</p>
+<% unless @player_name == "" || @player_name == nil || @player == "admin" %>
+  <p>Welcome <%= @player_name %>! Are you ready to play?</p>
   <a href="/newgame">Play!</a>
 <% else %>
   <p>Enter your name, please..</p>
