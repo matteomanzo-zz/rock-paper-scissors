@@ -1,16 +1,16 @@
 require 'sinatra/base'
+require_relative 'game.rb'
+require_relative 'player.rb'
 
 class RPS < Sinatra::Base
 
   set :views, Proc.new { File.join(root, "../views") }
   set :public_folder, Proc.new { File.join(root, "../public") }
 
-
-  options = { rock: :scissors, paper: :rock, scissors: :paper }
-  throws = options.keys
+  game = Game.new
+  player = Player.new("Matte")
 
   get '/' do
-    'Hello RPS!'
     erb :index
   end
 
@@ -39,17 +39,11 @@ class RPS < Sinatra::Base
   end
 
   post '/result' do
-    @title = "And the winner is.."
-    @player_throws = params[:game].to_sym
-    @computer_throws = throws.sample
-    if @player_throws == @computer_throws
-      @result = "tied"
-    elsif @player_throws == options[@computer_throws]
-      @result = "lose"
-    else
-      @result = "won"
-    end
-    erb :result
+    @title = "And the winner is.."  
+    @player_choice = player.pick(params[:game])
+    @end_match = game.result(@player_choice)
+    @computer = game.computer_choice
+    erb :result 
   end
 
   post '/admin_result' do
