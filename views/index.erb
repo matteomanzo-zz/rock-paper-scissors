@@ -1,6 +1,3 @@
-<% if @player_name == "admin" %>
-    <a href="/admin">admin_test</a>
-<% end %>
 <% unless @player_name == "" || @player_name == nil || @player == "admin" %>
   <p>Welcome <%= @player_name %>! Are you ready to play?</p>
   <a href="/newgame">Play!</a>

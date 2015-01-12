@@ -18,8 +18,9 @@ Rules
 
 Technologies
 ------------
-- Ruby
-- Sinatra
-- Cucumber
 - Capybara
-- CSS
+- Cucumber
+- HTML & CSS
+- Ruby
+- Rspec
+- Sinatra
