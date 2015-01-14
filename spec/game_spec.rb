@@ -9,62 +9,47 @@ describe Game do
   end
 
   context 'player winning' do
-
-    before{allow(game).to receive(:random_choice)}
    
-    it 'should return won when the player select paper and the CPU select rock' do
-      game.computer_choice = :rock
-      expect(game.result(:paper)).to eq 'won'
+    it 'should return won when the player select paper and the opponent select rock' do
+      expect(game.result(:paper, :rock)).to eq 'won'
     end
 
-    it 'should return won when the player selects rock and the CPU selects scissors' do
-      game.computer_choice = :scissors
-      expect(game.result(:rock)).to eq 'won'
+    it 'should return won when the player selects rock and the opponent selects scissors' do
+      expect(game.result(:rock, :scissors)).to eq 'won'
     end
 
-    it 'should return won when the player selects scissors and the CPU selects paper' do
-      game.computer_choice = :paper
-      expect(game.result(:scissors)).to eq 'won'
+    it 'should return won when the player selects scissors and the opponent selects paper' do
+      expect(game.result(:scissors, :paper)).to eq 'won'
     end
   end
 
   context 'player losing' do
 
-    before{allow(game).to receive(:random_choice)}
-
-    it 'should return lose when the player selects paper and the CPU selects scissors' do
-      game.computer_choice = :scissors
-      expect(game.result(:paper)).to eq 'lose'
+    it 'should return lose when the player selects paper and the opponent selects scissors' do
+      expect(game.result(:paper, :scissors)).to eq 'lose'
     end
 
-    it 'should return lose when the player selects scissors and the CPU selects rock' do
-      game.computer_choice = :rock
-      expect(game.result(:scissors)).to eq 'lose'
+    it 'should return lose when the player selects scissors and the opponent selects rock' do
+      expect(game.result(:scissors, :rock)).to eq 'lose'
     end
 
-    it 'should return lose when the player selects rock and the CPU selects paper' do
-      game.computer_choice = :paper
-      expect(game.result(:rock)).to eq 'lose'
+    it 'should return lose when the player selects rock and the opponent selects paper' do
+      expect(game.result(:rock, :paper)).to eq 'lose'
     end
   end
 
-  context 'player and CPU tied' do
+  context 'player and opponent tied' do
 
-    before{allow(game).to receive(:random_choice)}
-
-    it 'should return tied when the player selects rock and the CPU selects rock' do
-      game.computer_choice = :rock
-      expect(game.result(:rock)).to eq 'tied'
+    it 'should return tied when the player selects rock and the opponent selects rock' do
+      expect(game.result(:rock, :rock)).to eq 'tied'
     end
 
-    it 'should return tied when the player selects paper and the CPU selects paper' do
-      game.computer_choice = :paper
-      expect(game.result(:paper)).to eq 'tied'
+    it 'should return tied when the player selects paper and the opponent selects paper' do
+      expect(game.result(:paper, :paper)).to eq 'tied'
     end
 
-    it 'should return tied when the player selects scissors and the CPU selects scissors' do
-      game.computer_choice = :scissors
-      expect(game.result(:scissors)).to eq 'tied'
+    it 'should return tied when the player selects scissors and the opponent selects scissors' do
+      expect(game.result(:scissors, :scissors)).to eq 'tied'
     end
   end
 end

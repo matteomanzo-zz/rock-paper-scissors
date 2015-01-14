@@ -1,9 +1,9 @@
 <% if @end_match == "tied" %>
-  <p>You tied with the computer!!</p>
-  <p>You chose <%= @player_choice.capitalize %> and the computer did the same!!</p>
+  <p>You tied!</p>
+  <p>You chose <%= @player_choice.capitalize %> and the opponent too!!</p>
 <% elsif @end_match == "won" %>
-  <p>You won <%= @player_name %>!! <%= @player_choice.capitalize %> beats <%= @computer.capitalize %></p>
+  <p>You won!! <%= @player_name %>!! <%= @player_choice.capitalize %> beats <%= @opponent.capitalize %></p>
 <% elsif @end_match == "lose" %>
-  <p>You lose.. <%= @computer.capitalize %> beats <%= @player_choice.capitalize %></p>
+  <p>You lose.. <%= @opponent.capitalize %> beats <%= @player_choice.capitalize %></p>
 <% end %>
 <a href="/newgame">Play again</a>

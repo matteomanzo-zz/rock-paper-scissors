@@ -6,21 +6,34 @@ class Game
   def initialize
     @options = { rock: :scissors, paper: :rock, scissors: :paper }
     @throws = options.keys
+    @player_one = nil
+    @player_two = nil
   end
 
-  def random_choice
-    @computer_choice = throws.sample
-  end
-
-  def result(player_choice)
-    random_choice
-    if player_choice == computer_choice
+  def result(player_choice, opponent_choice)
+    if player_choice == opponent_choice
       value = "tied"
-    elsif player_choice == options[computer_choice]
+    elsif player_choice == options[opponent_choice]
       value = "lose"
-    elsif computer_choice == options[player_choice]
+    elsif opponent_choice == options[player_choice]
       value = "won"
     end
     return value
+  end
+
+  def CPU
+    throws.sample
+  end
+
+  def add_player_one(player)
+    @player_one = player1
+  end
+
+  def add_player_two(player)
+    @player_two = player
+  end
+
+  def two_players?
+    @player_one != nil && @player_two != nil
   end
 end

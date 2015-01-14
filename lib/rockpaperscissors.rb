@@ -14,12 +14,20 @@ class RPS < Sinatra::Base
     erb :index
   end
 
-  post '/' do
+  get '/single_player' do
+    erb :single_player
+  end
+
+  post '/single_player' do
     player = Player.new
     player.name = params[:name]
     @player_name = player.name
     session[:player] = player
-    erb :index
+    @player_name == "" || @player_name == nil ? (erb :single_player) : (erb :newgame)
+  end
+
+  get '/multiplayer' do
+    erb :multiplayer
   end
  
   get '/newgame' do
@@ -34,10 +42,10 @@ class RPS < Sinatra::Base
   post '/result' do
     @title = "And the winner is.."
     player = session[:player]
+    game.two_players? ? (@opponent = @player2_choice) : (@opponent = game.CPU)
     @player_name = player.name
     @player_choice = player.pick(params[:game])
-    @end_match = game.result(@player_choice)
-    @computer = game.computer_choice
+    @end_match = game.result(@player_choice, @opponent)
     erb :result 
   end
 

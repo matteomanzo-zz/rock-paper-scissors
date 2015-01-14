@@ -1,10 +1,9 @@
-<% unless @player_name == "" || @player_name == nil || @player == "admin" %>
-  <p>Welcome <%= @player_name %>! Are you ready to play?</p>
-  <a href="/newgame">Play!</a>
-<% else %>
-  <p>Enter your name, please..</p>
-  <form action='/' method='post'>
-    Your name: <input type= 'text' name= 'name'>
-    <input type= 'submit' name= 'Submit' value= 'GO!'>
-  </form>
-<% end %>
+<center>
+<p>Select the game!</p>
+<form action='/single_player' method='get'>
+  <input type='submit' name='single' value='Single Player'>
+</form>
+<form action='/multiplayer' method='get'>
+  <input type='submit' name='single' value='Multiplayer'>
+</form>
+</center>
