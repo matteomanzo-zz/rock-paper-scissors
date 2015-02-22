@@ -3,6 +3,8 @@ Rock, Paper, Scissors!
 This project (MA week 3 challenge) is a digital reproduction of one of the most popular games ever.
 I aim to create a very simple logic and an intuitive interface, as the game is very simple.
 
+![image]('rockpaperscissor.jpg')
+
 Tasks
 -----
 - The player must have a name in order to start a new game
@@ -18,9 +20,9 @@ Rules
 
 Technologies
 ------------
+- Ruby
+- HTML & CSS
+- Sinatra
+- Rspec
 - Capybara
 - Cucumber
-- HTML & CSS
-- Ruby
-- Rspec
-- Sinatra
